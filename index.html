@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Guru Purnima | Tribute to Our Esteemed Gurus</title>
-    <meta name="description" content="A solemn and joyous Guru Purnima tribute to Prof. Jagruti Zambare, Prof. Pasupati Adhimoolam, and Prof. Marium Shaikh from Mayuresh Nanal, Anirudh Kewat, Sujit Kargal, Lovekesh Dishwar, Sumrit Gajelli, and Shalini Rawat.">
+    <meta name="description" content="A solemn and joyous Guru Purnima tribute to Prof. Jagruti Zambare, Prof. Pasupati Adhimoolam, and Prof. Marium Shaikh from Mayuresh Nanal, Anirudh Kewat, Sujit Kargal, Lovekesh Dishwar, Sumrit Gajelli, Shalini Rawat, and Hindavi Tupe.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +23,12 @@
         <div class="moon-halo"></div>
         <div class="stars"></div>
     </div>
+
+    <!-- Audio Ambient Music Control -->
+    <button id="btnAudioToggle" class="btn-audio" title="Toggle Ambient Music">
+        <span class="audio-icon" id="audioIcon">🎵</span>
+        <span class="audio-label" id="audioLabel">Play Ambient Music</span>
+    </button>
 
     <!-- Main Container -->
     <div class="main-wrapper">
@@ -133,6 +139,9 @@
                         <button class="btn-tribute" onclick="offerGratitude('Prof. Jagruti Zambare')">
                             ❤️ Offer Respect <span class="tribute-count" id="count-jagruti">108</span>
                         </button>
+                        <button class="btn-notes" onclick="openNotesModal('jagruti')">
+                            💌 Personal Notes from Students
+                        </button>
                     </div>
                 </article>
 
@@ -161,6 +170,9 @@
                         <button class="btn-tribute" onclick="offerGratitude('Prof. Pasupati Adhimoolam')">
                             ❤️ Offer Respect <span class="tribute-count" id="count-pasupati">108</span>
                         </button>
+                        <button class="btn-notes" onclick="openNotesModal('pasupati')">
+                            💌 Personal Notes from Students
+                        </button>
                     </div>
                 </article>
 
@@ -188,6 +200,9 @@
                     <div class="guru-card-actions">
                         <button class="btn-tribute" onclick="offerGratitude('Prof. Marium Shaikh')">
                             ❤️ Offer Respect <span class="tribute-count" id="count-marium">108</span>
+                        </button>
+                        <button class="btn-notes" onclick="openNotesModal('marium')">
+                            💌 Personal Notes from Students
                         </button>
                     </div>
                 </article>
@@ -229,6 +244,10 @@
                         <span class="student-star">✦</span>
                         <span class="student-name">Shalini Rawat</span>
                     </div>
+                    <div class="student-badge">
+                        <span class="student-star">✦</span>
+                        <span class="student-name">Hindavi Tupe</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -240,6 +259,18 @@
             <p class="footer-blessing">"Knowledge removes darkness. Happy Guru Purnima."</p>
         </footer>
 
+    </div>
+
+    <!-- Modal for Personal Messages -->
+    <div id="notesModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeNotesModal()">&times;</button>
+            <h3 id="modalTeacherName" class="modal-title">Personal Messages</h3>
+            <div class="modal-subtitle">From Mayuresh, Anirudh, Sujit, Lovekesh, Sumrit, Shalini & Hindavi</div>
+            <div id="modalMessagesList" class="modal-messages-list">
+                <!-- Messages populated via JS -->
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
