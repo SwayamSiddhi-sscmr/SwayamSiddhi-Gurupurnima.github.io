@@ -715,6 +715,49 @@ body {
     font-size: 0.9rem;
     color: var(--text-muted);
     font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+/* Created By Badge */
+.created-by-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.created-by-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 215, 0, 0.06);
+    border: 1px solid var(--border-gold);
+    padding: 0.5rem 1.4rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.created-by-badge:hover {
+    border-color: var(--gold-primary);
+    color: var(--text-bright);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.heart-pulse {
+    display: inline-block;
+    animation: heartBeat 1.5s infinite ease-in-out;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+}
+
+.creator-name {
+    color: var(--gold-primary);
+    font-weight: 600;
 }
 
 /* Animations */
