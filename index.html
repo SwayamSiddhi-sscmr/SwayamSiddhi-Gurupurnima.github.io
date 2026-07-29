@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Guru Purnima | Tribute to Our Esteemed Gurus</title>
+    <meta name="description" content="A solemn and joyous Guru Purnima tribute to Prof. Jagruti Zambare, Prof. Pasupati Adhimoolam, and Prof. Marium Shaikh from Mayuresh Nanal, Anirudh Kewat, Sujit Kargal, Lovekesh Dishwar, Sumrit Gajelli, and Shalini Rawat.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Petal & Sparkle Canvas -->
+    <canvas id="petalCanvas"></canvas>
+
+    <!-- Glowing Background Atmosphere -->
+    <div class="sky-container">
+        <div class="full-moon"></div>
+        <div class="moon-halo"></div>
+        <div class="stars"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-wrapper">
+        
+        <!-- Header Banner -->
+        <header class="header">
+            <div class="college-badge">
+                <span class="badge-icon">🏛️</span>
+                <span class="badge-text">Swayam Siddhi College of Research and Management</span>
+            </div>
+
+            <!-- Diya Centerpiece -->
+            <div class="diya-wrapper" id="diyaContainer" title="Click to offer light!">
+                <div class="flame-glow"></div>
+                <svg class="diya-svg" viewBox="0 0 120 100" width="120" height="100">
+                    <!-- Flame -->
+                    <path class="flame-outer" d="M60,10 Q72,35 60,50 Q48,35 60,10 Z" fill="url(#flameGrad)" />
+                    <path class="flame-inner" d="M60,20 Q66,35 60,46 Q54,35 60,20 Z" fill="#FFF59D" />
+                    <!-- Oil Lamp Base -->
+                    <path d="M20,60 C20,80 100,80 100,60 C100,50 90,48 60,48 C30,48 20,50 20,60 Z" fill="url(#goldGrad)" />
+                    <path d="M15,58 Q60,68 105,58 C110,65 95,85 60,85 C25,85 10,65 15,58 Z" fill="url(#bronzeGrad)" />
+                    
+                    <defs>
+                        <linearGradient id="flameGrad" x1="0" y1="1" x2="0" y2="0">
+                            <stop offset="0%" stop-color="#FF3D00"/>
+                            <stop offset="50%" stop-color="#FF9100"/>
+                            <stop offset="100%" stop-color="#FFEA00"/>
+                        </linearGradient>
+                        <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#FFE082"/>
+                            <stop offset="50%" stop-color="#FFB300"/>
+                            <stop offset="100%" stop-color="#FF8F00"/>
+                        </linearGradient>
+                        <linearGradient id="bronzeGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#D4AF37"/>
+                            <stop offset="100%" stop-color="#5D4037"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Sanskrit Shloka Card -->
+            <div class="shloka-card">
+                <div class="corner-ornament top-left"></div>
+                <div class="corner-ornament top-right"></div>
+                <div class="corner-ornament bottom-left"></div>
+                <div class="corner-ornament bottom-right"></div>
+                
+                <p class="shloka-devanagari">
+                    गुरुर्ब्रह्मा गुरुर्विष्णुः गुरुर्देवो महेश्वरः ।<br>
+                    गुरुः साक्षात् परं ब्रह्म तस्मै श्रीगुरवे नमः ॥
+                </p>
+                <p class="shloka-translation">
+                    "The Guru is Brahma, Vishnu, and Shiva. The Guru is the supreme reality. <br>
+                    With deep reverence, we bow to our noble teachers."
+                </p>
+            </div>
+
+            <h1 class="main-title">
+                Happy <span class="gold-gradient-text">Guru Purnima</span>
+            </h1>
+            <p class="hero-subtext">
+                Honoring the beacons of wisdom, guidance, and dedication who inspire our futures every single day at Swayam Siddhi College.
+            </p>
+
+            <!-- Action Controls -->
+            <div class="action-bar">
+                <button class="btn-primary" id="btnShowerFlowers">
+                    <span class="btn-icon">🌸</span> Offer Flower Shower
+                </button>
+                <button class="btn-secondary" id="btnToggleDiya">
+                    <span class="btn-icon">🪔</span> Light Sacred Flame
+                </button>
+            </div>
+        </header>
+
+        <!-- Teachers Section -->
+        <section class="section-gurus">
+            <div class="section-header">
+                <h2 class="section-title">Our Revered Mentors</h2>
+                <div class="title-underline"><span>🪷</span></div>
+            </div>
+
+            <div class="gurus-grid">
+                
+                <!-- Professor 1: Jagruti Zambare -->
+                <article class="guru-card" data-guru="jagruti">
+                    <div class="card-border-glow"></div>
+                    <div class="guru-crest-container">
+                        <div class="lotus-frame">
+                            <svg class="lotus-svg" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="44" stroke="url(#goldGrad)" stroke-width="2" fill="none" stroke-dasharray="4 2"/>
+                                <polygon points="50,5 60,25 80,20 70,40 90,50 70,60 80,80 60,75 50,95 40,75 20,80 30,60 10,50 30,40 20,20 40,25" fill="rgba(212,175,55,0.08)" stroke="#FFD700" stroke-width="0.8"/>
+                            </svg>
+                            <div class="guru-initials">JZ</div>
+                        </div>
+                    </div>
+
+                    <div class="guru-info">
+                        <h3 class="guru-name">Prof. Jagruti Zambare</h3>
+                        <span class="guru-tag">Pillar of Innovation & Excellence</span>
+                        <p class="guru-tribute">
+                            "Your wisdom and unwavering patience ignite a passion for learning. Thank you for guiding our thoughts, mentoring our research, and shaping our aspirations with immense care."
+                        </p>
+                    </div>
+
+                    <div class="guru-card-actions">
+                        <button class="btn-tribute" onclick="offerGratitude('Prof. Jagruti Zambare')">
+                            ❤️ Offer Respect <span class="tribute-count" id="count-jagruti">108</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Professor 2: Pasupati Adhimoolam -->
+                <article class="guru-card" data-guru="pasupati">
+                    <div class="card-border-glow"></div>
+                    <div class="guru-crest-container">
+                        <div class="lotus-frame">
+                            <svg class="lotus-svg" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="44" stroke="url(#goldGrad)" stroke-width="2" fill="none" stroke-dasharray="4 2"/>
+                                <polygon points="50,5 60,25 80,20 70,40 90,50 70,60 80,80 60,75 50,95 40,75 20,80 30,60 10,50 30,40 20,20 40,25" fill="rgba(212,175,55,0.08)" stroke="#FFD700" stroke-width="0.8"/>
+                            </svg>
+                            <div class="guru-initials">PA</div>
+                        </div>
+                    </div>
+
+                    <div class="guru-info">
+                        <h3 class="guru-name">Prof. Pasupati Adhimoolam</h3>
+                        <span class="guru-tag">Beacon of Leadership & Mentorship</span>
+                        <p class="guru-tribute">
+                            "A mentor who exemplifies leadership and integrity. Your profound insight and encouraging words inspire us to overcome challenges and achieve true academic mastery."
+                        </p>
+                    </div>
+
+                    <div class="guru-card-actions">
+                        <button class="btn-tribute" onclick="offerGratitude('Prof. Pasupati Adhimoolam')">
+                            ❤️ Offer Respect <span class="tribute-count" id="count-pasupati">108</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Professor 3: Marium Shaikh -->
+                <article class="guru-card" data-guru="marium">
+                    <div class="card-border-glow"></div>
+                    <div class="guru-crest-container">
+                        <div class="lotus-frame">
+                            <svg class="lotus-svg" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="44" stroke="url(#goldGrad)" stroke-width="2" fill="none" stroke-dasharray="4 2"/>
+                                <polygon points="50,5 60,25 80,20 70,40 90,50 70,60 80,80 60,75 50,95 40,75 20,80 30,60 10,50 30,40 20,20 40,25" fill="rgba(212,175,55,0.08)" stroke="#FFD700" stroke-width="0.8"/>
+                            </svg>
+                            <div class="guru-initials">MS</div>
+                        </div>
+                    </div>
+
+                    <div class="guru-info">
+                        <h3 class="guru-name">Prof. Marium Shaikh</h3>
+                        <span class="guru-tag">Inspiration of Wisdom & Dedication</span>
+                        <p class="guru-tribute">
+                            "Your endless enthusiasm and guidance turn learning into a transformative journey. Thank you for believing in us and illuminating our path to success."
+                        </p>
+                    </div>
+
+                    <div class="guru-card-actions">
+                        <button class="btn-tribute" onclick="offerGratitude('Prof. Marium Shaikh')">
+                            ❤️ Offer Respect <span class="tribute-count" id="count-marium">108</span>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Dedicated Student Wishes Section -->
+        <section class="section-students">
+            <div class="students-container">
+                <div class="students-header">
+                    <span class="students-subtitle">With Heartfelt Respect & Gratitude</span>
+                    <h2 class="students-title">Wished By</h2>
+                    <div class="title-underline"><span>✨</span></div>
+                </div>
+
+                <div class="students-grid">
+                    <div class="student-badge">
+                        <span class="student-star">✦</span>
+                        <span class="student-name">Mayuresh Nanal</span>
+                    </div>
+                    <div class="student-badge">
+                        <span class="student-star">✦</span>
+                        <span class="student-name">Anirudh Kewat</span>
+                    </div>
+                    <div class="student-badge">
+                        <span class="student-star">✦</span>
+                        <span class="student-name">Sujit Kargal</span>
+                    </div>
+                    <div class="student-badge">
+                        <span class="student-star">✦</span>
+                        <span class="student-name">Lovekesh Dishwar</span>
+                    </div>
+                    <div class="student-badge">
+                        <span class="student-star">✦</span>
+                        <span class="student-name">Sumrit Gajelli</span>
+                    </div>
+                    <div class="student-badge">
+                        <span class="student-star">✦</span>
+                        <span class="student-name">Shalini Rawat</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-divider"></div>
+            <p class="footer-college">Swayam Siddhi College of Research and Management</p>
+            <p class="footer-blessing">"Knowledge removes darkness. Happy Guru Purnima."</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

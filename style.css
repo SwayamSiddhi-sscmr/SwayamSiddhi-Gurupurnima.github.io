@@ -1,0 +1,587 @@
+/* ==========================================================================
+   Guru Purnima Master Aesthetics & Styling
+   ========================================================================== */
+
+:root {
+    --bg-dark: #070a12;
+    --bg-card: rgba(18, 22, 36, 0.75);
+    --gold-primary: #FFD700;
+    --gold-secondary: #D4AF37;
+    --gold-dark: #997A15;
+    --saffron: #FF7700;
+    --saffron-light: #FF9E44;
+    --crimson: #800020;
+    --text-bright: #FFFFFF;
+    --text-muted: #CBD5E1;
+    --text-gold: #F1C40F;
+    --border-gold: rgba(212, 175, 55, 0.35);
+    
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-sanskrit: 'Tiro Devanagari Sanskrit', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-bright);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Canvas for Flower Petals */
+#petalCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Sky & Full Moon Background */
+.sky-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background: radial-gradient(circle at 50% 20%, #171d30 0%, #080b14 70%, #030408 100%);
+    overflow: hidden;
+}
+
+.full-moon {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #FFF5CC 50%, #E6C280 100%);
+    box-shadow: 
+        0 0 60px rgba(255, 245, 204, 0.5),
+        0 0 140px rgba(255, 215, 0, 0.3),
+        0 0 220px rgba(255, 119, 0, 0.15);
+    opacity: 0.9;
+}
+
+.moon-halo {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.12) 0%, rgba(255, 119, 0, 0.05) 50%, transparent 80%);
+    animation: haloPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes haloPulse {
+    0% { transform: translateX(-50%) scale(1); opacity: 0.7; }
+    100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+}
+
+.stars {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        radial-gradient(1.5px 1.5px at 15px 25px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 75px 125px, #FFD700, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 250px 75px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 400px 200px, #FF9E44, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 600px 100px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 550px 350px;
+    opacity: 0.6;
+}
+
+/* Wrapper Layout */
+.main-wrapper {
+    position: relative;
+    z-index: 10;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem 1.5rem;
+}
+
+/* Header & College Badge */
+.header {
+    text-align: center;
+    padding-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.college-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid var(--border-gold);
+    padding: 0.5rem 1.4rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.badge-icon {
+    font-size: 1.1rem;
+}
+
+.badge-text {
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #FFE082;
+    text-transform: uppercase;
+}
+
+/* Diya Animation */
+.diya-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.diya-wrapper:hover {
+    transform: scale(1.08);
+}
+
+.flame-glow {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #FF9100 0%, #FF3D00 50%, transparent 80%);
+    filter: blur(12px);
+    opacity: 0.85;
+    animation: flameFlicker 1.8s infinite ease-in-out alternate;
+}
+
+.flame-outer {
+    transform-origin: center bottom;
+    animation: flameDance 1.2s infinite ease-in-out alternate;
+}
+
+.flame-inner {
+    transform-origin: center bottom;
+    animation: flameDance 0.8s infinite ease-in-out alternate-reverse;
+}
+
+@keyframes flameDance {
+    0% { transform: scale(1) rotate(-1deg); }
+    50% { transform: scale(1.06, 1.12) rotate(2deg); }
+    100% { transform: scale(0.96, 0.95) rotate(-2deg); }
+}
+
+@keyframes flameFlicker {
+    0% { opacity: 0.7; filter: blur(10px); }
+    100% { opacity: 1; filter: blur(16px); }
+}
+
+/* Sanskrit Shloka Card */
+.shloka-card {
+    position: relative;
+    max-width: 750px;
+    margin: 0 auto 2.5rem auto;
+    background: linear-gradient(135deg, rgba(20, 26, 44, 0.85), rgba(12, 16, 28, 0.9));
+    border: 1px solid var(--border-gold);
+    border-radius: 16px;
+    padding: 2.2rem 2rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 25px rgba(212, 175, 55, 0.05);
+    backdrop-filter: blur(12px);
+}
+
+.shloka-devanagari {
+    font-family: var(--font-sanskrit);
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    color: var(--gold-primary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
+}
+
+.shloka-translation {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* Filigree Corners */
+.corner-ornament {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--gold-secondary);
+}
+
+.top-left { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+.top-right { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+.bottom-left { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+.bottom-right { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+/* Titles & Text */
+.main-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.gold-gradient-text {
+    background: linear-gradient(135deg, #FFF5CC 0%, #FFD700 40%, #FF9E44 80%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+}
+
+.hero-subtext {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 2.5rem auto;
+    font-weight: 300;
+}
+
+/* Action Buttons */
+.action-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.85rem 1.8rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #FF9E44 0%, #FF7700 50%, #D4AF37 100%);
+    color: #070a12;
+    box-shadow: 0 6px 25px rgba(255, 119, 0, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px rgba(255, 119, 0, 0.6);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--gold-primary);
+    border: 1px solid var(--border-gold);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(212, 175, 55, 0.15);
+    transform: translateY(-3px);
+    border-color: var(--gold-primary);
+}
+
+/* Section Header */
+.section-gurus {
+    padding: 3rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--gold-primary);
+    letter-spacing: 1px;
+}
+
+.title-underline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.title-underline::before, .title-underline::after {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-secondary));
+}
+
+.title-underline::after {
+    background: linear-gradient(to left, transparent, var(--gold-secondary));
+}
+
+/* Teachers Grid */
+.gurus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Guru Card */
+.guru-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-gold);
+    border-radius: 20px;
+    padding: 2.5rem 1.8rem;
+    text-align: center;
+    backdrop-filter: blur(16px);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.guru-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold-primary);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.6), 0 0 30px rgba(255, 215, 0, 0.18);
+}
+
+/* Lotus Crest Frame */
+.guru-crest-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+}
+
+.lotus-frame {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lotus-svg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    animation: lotusRotate 25s linear infinite;
+}
+
+@keyframes lotusRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.guru-initials {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold-primary);
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(7, 10, 18, 0.8) 100%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--gold-secondary);
+    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.3);
+    z-index: 2;
+}
+
+/* Guru Info */
+.guru-name {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    color: var(--text-bright);
+    margin-bottom: 0.4rem;
+}
+
+.guru-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--saffron-light);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+
+.guru-tribute {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+/* Card Button */
+.btn-tribute {
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--border-gold);
+    color: var(--gold-primary);
+    padding: 0.65rem 1.4rem;
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-tribute:hover {
+    background: var(--gold-primary);
+    color: #070a12;
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+}
+
+.tribute-count {
+    background: rgba(0,0,0,0.3);
+    padding: 0.15rem 0.6rem;
+    border-radius: 12px;
+    margin-left: 0.4rem;
+    font-size: 0.8rem;
+}
+
+/* Dedicated Students Section */
+.section-students {
+    padding: 4rem 0 2rem 0;
+}
+
+.students-container {
+    background: linear-gradient(135deg, rgba(20, 26, 44, 0.85), rgba(12, 16, 28, 0.9));
+    border: 1px solid var(--border-gold);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    text-align: center;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4), inset 0 0 30px rgba(255, 215, 0, 0.05);
+}
+
+.students-subtitle {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--saffron-light);
+    font-weight: 500;
+}
+
+.students-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    color: var(--gold-primary);
+    margin-top: 0.3rem;
+}
+
+.students-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+}
+
+.student-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255, 215, 0, 0.08);
+    border: 1px solid var(--border-gold);
+    padding: 0.75rem 1.6rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.student-badge:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: rgba(255, 215, 0, 0.18);
+    border-color: var(--gold-primary);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.25);
+}
+
+.student-star {
+    color: var(--saffron);
+    font-size: 0.9rem;
+}
+
+.student-name {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    letter-spacing: 0.5px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.footer-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-gold), transparent);
+    margin-bottom: 2rem;
+}
+
+.footer-college {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--gold-primary);
+    margin-bottom: 0.4rem;
+}
+
+.footer-blessing {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-wrapper {
+        padding: 1rem 1rem 3rem 1rem;
+    }
+    .shloka-card {
+        padding: 1.5rem 1.2rem;
+    }
+    .students-container {
+        padding: 2rem 1.2rem;
+    }
+    .student-badge {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
