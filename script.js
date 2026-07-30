@@ -259,6 +259,18 @@ const personalNotesData = {
             { author: "Hindavi Tupe", text: "Wishing you a very Happy Guru Purnima ma'am! Thank you for your inspiring teaching and mentorship." }
         ]
     },
+    apeksha: {
+        name: "Prof. Apeksha Gaje",
+        messages: [
+            { author: "Mayuresh Nanal", text: "Thank you ma'am for your dedicated teaching, constant encouragement, and insightful guidance!" },
+            { author: "Anirudh Kewat", text: "Your support and guidance make learning a truly inspiring experience. Happy Guru Purnima ma'am!" },
+            { author: "Sujit Kargal", text: "Wishing you a very Happy Guru Purnima ma'am! Thank you for always guiding us with patience." },
+            { author: "Lovekesh Dishwar", text: "Your commitment to our success is deeply appreciated by all of us. Grateful for your mentorship!" },
+            { author: "Sumrit Gajelli", text: "Thank you ma'am for bringing so much clarity and enthusiasm into your teaching every day." },
+            { author: "Shalini Rawat", text: "Wishing you happiness and success on Guru Purnima ma'am! Thank you for everything." },
+            { author: "Hindavi Tupe", text: "Happy Guru Purnima ma'am! Thank you for being such an encouraging and supportive mentor." }
+        ]
+    },
     pasupati: {
         name: "Prof. Pasupati Adhimoolam",
         messages: [
@@ -356,6 +368,7 @@ window.offerGratitude = function(guruName) {
     if (guruName.includes('Jagruti')) id = 'count-jagruti';
     else if (guruName.includes('Pasupati')) id = 'count-pasupati';
     else if (guruName.includes('Marium')) id = 'count-marium';
+    else if (guruName.includes('Apeksha')) id = 'count-apeksha';
 
     const countEl = document.getElementById(id);
     if (countEl) {
